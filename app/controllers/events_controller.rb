@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   def index
     # GET /events/index
     # GET /events
-    @events = Event.all
+    @events = Event.page(params[:page]).per(5)
   end
 
   # GET /event/new
