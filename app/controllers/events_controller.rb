@@ -19,7 +19,7 @@ class EventsController < ApplicationController
 
     if @event.save
       flash[:notice] = "event was successfully created"
-      redirect_to :action => :index
+      redirect_to events_url
     else
       #redirect_to :action => :new 不這樣做是因為想記得之前使用者在網頁中輸入的資料
       render :action => :new
@@ -41,14 +41,14 @@ class EventsController < ApplicationController
     @event.attributes = event_params
     @event.save
 
-    redirect_to :action => :show, :id => @event
+    redirect_to event_url(@event)
   end
 
   def destroy
     @event.destroy
     flash[:alert] = "event was successfully deleted"
 
-    redirect_to :action => :index
+    redirect_to events_url
   end
 
   private
