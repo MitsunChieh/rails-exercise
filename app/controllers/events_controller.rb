@@ -18,6 +18,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     if @event.save
+      flash[:notice] = "event was successfully created"
       redirect_to :action => :index
     else
       #redirect_to :action => :new 不這樣做是因為想記得之前使用者在網頁中輸入的資料
@@ -36,6 +37,7 @@ class EventsController < ApplicationController
 
   def update
     # @event.update_attributes(event_params)
+    flash[:notice] = "event was successfully updated"
     @event.attributes = event_params
     @event.save
 
@@ -44,6 +46,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
+    flash[:alert] = "event was successfully deleted"
 
     redirect_to :action => :index
   end
