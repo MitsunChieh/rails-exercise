@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
+ruby "2.1.3"
 
-
+# for heroku
+gem 'pg'
+gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 gem "kaminari"
