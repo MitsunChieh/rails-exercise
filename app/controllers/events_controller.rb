@@ -2,6 +2,8 @@ class EventsController < ApplicationController
 
   before_action :set_event, :only => [ :show, :edit, :update, :destroy]
 
+  before_action :authenticate_user!
+
   def index
     # GET /events/index
     # GET /events
@@ -25,7 +27,7 @@ class EventsController < ApplicationController
   # POST /event/create
   def create
     @event = Event.new(event_params)
-
+    @event.user = current.user
     if @event.save
       flash[:notice] = "event was successfully created"
       redirect_to events_url

@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby "2.1.3"
 
+# for Authentication
+gem 'devise'
+
 # for heroku
 gem 'pg'
 gem 'rails_12factor', group: :production

@@ -14,6 +14,7 @@ class Event < ActiveRecord::Base
     category.try(:name)
   end
 
+  belongs_to :user
   delegate :name, :to => :category, :prefix => true, :allow_nil => true
 
 end

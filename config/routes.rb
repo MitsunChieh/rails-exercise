@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :events do
     resources :attendees, :controller => 'event_attendees'
+
+    collection do
+      get :search
+    end
+
+  end
+
+  namespace :admin do
+    resources :events
   end
 
   resources :people
