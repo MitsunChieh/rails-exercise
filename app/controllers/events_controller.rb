@@ -65,6 +65,11 @@ class EventsController < ApplicationController
     redirect_to events_url
   end
 
+  def search
+    @events = Event.where( [ "name like ?", "%#{params[:keyword]}%" ]).paginate( :page => params[:page] )
+    render :action => :index
+  end
+
   private
 
   def event_params
