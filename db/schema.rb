@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20141029021134) do
     t.datetime "updated_at"
     t.string   "status"
     t.integer  "category_id"
-    t.integer  "user"
+    t.integer  "user_id"
   end
 
   add_index "events", ["category_id"], name: "index_events_on_category_id", using: :btree
